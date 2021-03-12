@@ -27,7 +27,7 @@ loss_history = myOptmizer.history
 ```
 
 ### 예시
-- 폴더 내 test_example 노트북 파일 참고(ScoreOptmizer/test_example.ipynb)
+- 폴더 내 test_example 노트북 파일 참고([ScoreOptmizer/test_example.ipynb](https://github.com/JH-Won/ScoreOptmizer/blob/main/test_example.ipynb))
 
 
 ### 업데이트 현황
