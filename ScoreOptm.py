@@ -134,7 +134,7 @@ class ScoreOptimizer:
         partial_b_val = np.asfarray(partial_b_val).reshape(-1,)
         partial_y_val = np.asfarray(partial_y_val).reshape(-1,)
 
-        # output is updated b values and y values.
+        # outputs are updated b values and y values.
         return b_numeric - partial_b_val * lr, y_numeric - partial_y_val * lr
 
 
