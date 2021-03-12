@@ -23,7 +23,7 @@ bias_updated, y_updated, total_loss = myOptmizer.gradient_descent(learnin_rate=1
 # If verbose = True, it prints total loss and updated scores(i.e, each ys).
 ```
 
-### 기타 util:
+### 기타 util
 - ScoreOptmizer.caculate_original_mean_score() := score_matrix의 기존 problem별 평균을 계산한다.
 ```python
 original_mean = myOptmizer.caculate_original_mean_score()
