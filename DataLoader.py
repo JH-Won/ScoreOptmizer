@@ -18,19 +18,25 @@ def convert_str(number):
     except ValueError:
         return math.nan
 
-def preprocess_file(file):
+def preprocess_file(file, not_include = None):
     assert type(file) is str and file.endswith('.csv'), "invalid file."
     df = pd.read_csv(file, dtype = str)
     
-    header = list(df.values[1:, 0])
-    mat = df.values[1:,1:]
+    mat = df.values[0:,1:]
 
     length = mat.shape[0]
+    header = []
     score_mat = []
     for i in range(length):
-        row = []
+        if not_include != None and i in not_include:
+            continue
+        header.append(df.values[i, 0])
+        col = []
         for j in range(length):
-            row.append(convert_str(mat[i ,j]))
-        score_mat.append(row)
-    score_mat = np.asfarray(score_mat)
+            if not_include != None and j in not_include:
+                continue
+            col.append(convert_str(mat[j ,i]))
+        score_mat.append(col)
+    score_mat = np.asfarray(score_mat).T
+
     return header, score_mat
