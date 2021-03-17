@@ -82,7 +82,7 @@ class ScoreOptimizer:
         # symbolize the loss with symbols.
         loss = ""
         for i in range(self.n_student): # i-th problem
-            for j in range(self.n_student): # j-th problem
+            for j in range(self.n_student): # j-th reviewer
                 if math.isnan(score_mat[j,i]):
                     continue
                 loss += f"+({score_mat[j,i]} - {y_terms[i]} - {b_terms[j]})**2 + {b_terms[j]}**2"

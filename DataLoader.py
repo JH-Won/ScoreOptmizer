@@ -23,7 +23,7 @@ def preprocess_file(file):
     df = pd.read_csv(file, dtype = str)
     
     header = list(df.values[1:, 0])
-    mat = df.values[:,1:]
+    mat = df.values[1:,1:]
 
     length = mat.shape[0]
     score_mat = []
