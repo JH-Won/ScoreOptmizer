@@ -55,7 +55,10 @@ class ScoreOptimizer:
                     continue
                 n += 1
                 val += self.score_matrix[j,i]
-            mean_scores.append(val / n)
+            if val <= 0:
+                mean_scores.append(0)
+            else: 
+                mean_scores.append(val / n)
         return mean_scores
 
 

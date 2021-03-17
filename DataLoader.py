@@ -3,14 +3,13 @@ import pandas as pd
 import math
 import os
 
-path = './data/'
 
-def list_all_files():
+def list_all_files(path = './data/'):
     ret = []
     files = os.listdir(path)
     for file in files:
         if file.endswith('.csv'):
-            ret.append(file)
+            ret.append(os.path.join(path,file))
     return ret
 
 def convert_str(number):
@@ -28,9 +27,9 @@ def preprocess_file(file):
 
     length = mat.shape[0]
     score_mat = []
-    for i in length:
+    for i in range(length):
         row = []
-        for j in length:
+        for j in range(length):
             row.append(convert_str(mat[i ,j]))
         score_mat.append(row)
     score_mat = np.asfarray(score_mat)
