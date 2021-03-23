@@ -3,7 +3,7 @@
 ScoreOptimizer is an algorithm for reducing biases and getting the most likely scores students should get (i.e., students' unbiased scores). Here, the assumption is that each student has a bias, and scores the problems with that. The algorithm is based on following objective function, ~ . Note that all {b_i} and {y_i} are the parameters which we should find. 
 
 
-### Implementation steps
+### Implementation
 Here's how it was implemented:
 1. In order to take the partial derivatives for each parameters, we symbolized all parameters and loss function using [python sympy](https://www.sympy.org/en/index.html).
 2. We then, took partial derivatives of loss function with respect to each parameters, and kept them in the list.
