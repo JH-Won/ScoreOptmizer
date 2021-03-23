@@ -18,12 +18,12 @@ Here's how it was implemented:
 from ScoreOptm import ScoreOptimizer
 ```
 
-2. Create ScoreOptimizer object with score matrix. This will set the loss function from given score matrix.
+2. Create ScoreOptimizer object with score matrix. This will set the loss function from the score matrix.
 ```python
 myOptmizer = ScoreOptimizer(score_matrix) # score_matrix is ndarray.
 ```
 
-3. Call the gradient_descent mathod from the object you created.
+3. Call the gradient_descent mathod to find optimal parameters. You can set the learning rate, iteration number, and verbose.
 ```python
 bias_updated, y_updated, total_loss = myOptmizer.gradient_descent(learnin_rate=1e-3, n_iteration=1000, verbose=True) 
 # If verbose = True, it prints total loss and updated scores(i.e, each ys).
@@ -31,12 +31,12 @@ bias_updated, y_updated, total_loss = myOptmizer.gradient_descent(learnin_rate=1
 
 ### Utils
 - ScoreOptmizer.caculate_original_mean_score()
-Calculate the average scores of the problem.
+:= Calculate the average scores of the problem.
 ```python
 original_mean = myOptmizer.caculate_original_mean_score()
 ```
 - ScoreOptmizer.history
-The list that tracked loss for each iteration.
+:= The list that tracked loss for each iteration.
 ```python
 loss_history = myOptmizer.history
 ```
@@ -47,3 +47,4 @@ loss_history = myOptmizer.history
 
 ### Updates 
 - 2021.03.12: first draft.
+- 2021.03.23: README.md edited.
