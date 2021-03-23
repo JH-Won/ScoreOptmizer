@@ -1,7 +1,9 @@
 # ScoreOptmizer
 ### Introduction
-ScoreOptimizer is an algorithm for reducing biases and getting the most likely scores students should get (i.e., students' unbiased scores). Here, the assumption is that each student has a bias, and scores the problems with that. The algorithm is based on following objective function, ~ . Note that all {b_i} and {y_i} are the parameters which we should find. 
+ScoreOptimizer is an algorithm for reducing biases and getting the most likely scores students should get (i.e., students' unbiased scores). Here, the assumption is that each student has a bias, and scores the problems with that. The algorithm is based on following objective function:
+![alt text](https://github.com/JH-Won/ScoreOptmizer/blob/main/img/img.PNG)
 
+Note that all b_i and y_i are the parameters which we should find. 
 
 ### Implementation
 Here's how it was implemented:
