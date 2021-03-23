@@ -1,23 +1,29 @@
 # ScoreOptmizer
-### 구현방법
-1. bias, y term을 모두 symbolize하여 loss function을 정의한다. (sympy를 이용)
-2. loss function에 대해 각 bias (ex. 1,2,...12) 및 y에 대한 미분식을 구한다. (sympy.diff() 이용)
-3. 각 미분식에 random value로 초기화한다.
-4. 이렇게 구한 미분값에 주어진 learning rate 곱하여 -방향으로 미분값을 업데이트한다. ([__gradient_descent 함수](https://github.com/JH-Won/ScoreOptmizer/blob/main/ScoreOptm.py#L104))
+### Introduction
+ScoreOptimizer is an algorithm for reducing biases and getting the most likely scores students should get (i.e., students' unbiased scores). Here, the assumption is that each student has a bias, and scores the problems with that. The algorithm is based on following objective function, ~ . Note that all {b_i} and {y_i} are parameters which we should find. 
 
 
-### 사용방법
-1. impot ScoreOptmizer class.
+### Implementation steps
+Here's how it was implemented:
+1. In order to take the partial derivatives for each parameters, we symbolized all parameters and loss function using [python sympy](https://www.sympy.org/en/index.html).
+2. We then, took partial derivatives of loss function with respect to each parameters, and kept them in the list.
+4. In order to optimize the parameters, the gradient descent was implemented. ([ScoreOptimizer.__gradient_descent](https://github.com/JH-Won/ScoreOptmizer/blob/main/ScoreOptm.py#L104))
+5. All of these are included in [ScoreOptimizer class](https://github.com/JH-Won/ScoreOptmizer/blob/main/ScoreOptm.py#L7).
+
+
+### How to use
+1. Download this repository and place ScoreOptm.py into your workspace.
+2. Impot ScoreOptmizer class.
 ```python
 from ScoreOptm import ScoreOptimizer
 ```
 
-2. ScoreOptimizer 객체를 생성.
+2. Create ScoreOptimizer object with score matrix. This will set the loss function from given score matrix.
 ```python
 myOptmizer = ScoreOptimizer(score_matrix) # score_matrix is ndarray.
 ```
 
-3. gradient_descent 메서드를 호출.
+3. Call the gradient_descent mathod from the object you created. You can give learning rate, iteration number and verbose.
 ```python
 bias_updated, y_updated, total_loss = myOptmizer.gradient_descent(learnin_rate=1e-3, n_iteration=1000, verbose=True) 
 # If verbose = True, it prints total loss and updated scores(i.e, each ys).
