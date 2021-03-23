@@ -23,25 +23,27 @@ from ScoreOptm import ScoreOptimizer
 myOptmizer = ScoreOptimizer(score_matrix) # score_matrix is ndarray.
 ```
 
-3. Call the gradient_descent mathod from the object you created. You can give learning rate, iteration number and verbose.
+3. Call the gradient_descent mathod from the object you created.
 ```python
 bias_updated, y_updated, total_loss = myOptmizer.gradient_descent(learnin_rate=1e-3, n_iteration=1000, verbose=True) 
 # If verbose = True, it prints total loss and updated scores(i.e, each ys).
 ```
 
-### 기타 util
-- ScoreOptmizer.caculate_original_mean_score() := score_matrix의 기존 problem별 평균을 계산한다.
+### Utils
+- ScoreOptmizer.caculate_original_mean_score()
+Calculate the average scores of the problem.
 ```python
 original_mean = myOptmizer.caculate_original_mean_score()
 ```
-- ScoreOptmizer.history := iteration마다의 loss를 기록한 list.
+- ScoreOptmizer.history
+The list that tracked loss for each iteration.
 ```python
 loss_history = myOptmizer.history
 ```
 
-### 예시
-- 폴더 내 test_example 노트북 파일 참고([ScoreOptmizer/test_example.ipynb](https://github.com/JH-Won/ScoreOptmizer/blob/main/test_example.ipynb))
+### Example
+- Sample score matrix file and [notebook](https://github.com/JH-Won/ScoreOptmizer/blob/main/test_example.ipynb) are in the repository.
 
 
-### 업데이트 현황
-- 2021.03.12: 초안 완성 (테스트 진행)
+### Updates 
+- 2021.03.12: first draft.
