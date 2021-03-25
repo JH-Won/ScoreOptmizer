@@ -1,16 +1,16 @@
 # ScoreOptmizer
 ### Introduction
-ScoreOptimizer is an algorithm for reducing biases and getting the most likely scores students should get (i.e., students' unbiased scores). Here, the assumption is that each student has a bias, and scores the problems with that. The algorithm is based on following objective function:
+ScoreOptimizer is an algorithm for reducing biases and getting the most likely scores students should get (i.e., students' unbiased scores). Here, the assumption is that students have their own bias, and they score the problems with that bias. So, in order to find unbiased scores and to reduce biases, we designed the algorithm which is expressed as following objective function:
 ![alt text](https://github.com/JH-Won/ScoreOptmizer/blob/main/img/img.PNG)
 
-Note that all b_j and y_i are the parameters which we should find. 
+Note that all b_j and y_i are the parameters we want to optimize. 
 
 ### Implementation
 Here's how it was implemented:
-1. In order to take the partial derivatives for each parameters, we symbolized all parameters and loss function using [python sympy](https://www.sympy.org/en/index.html).
-2. We then, took partial derivatives of loss function with respect to each parameters, and kept them in the list.
-4. In order to optimize the parameters, the gradient descent was implemented. ([ScoreOptimizer.__gradient_descent](https://github.com/JH-Won/ScoreOptmizer/blob/main/ScoreOptm.py#L104))
-5. All of these are included in [ScoreOptimizer class](https://github.com/JH-Won/ScoreOptmizer/blob/main/ScoreOptm.py#L7).
+1. We symbolized all the parameters and loss function using [python sympy](https://www.sympy.org/en/index.html).
+2. Then, using sympy, we took partial derivatives of loss function with respect to parameters respectively, and kept all of them in the list.
+4. The gradient descent algorithm was also implemented to optimize the parameters numerically: [ScoreOptimizer.__gradient_descent](https://github.com/JH-Won/ScoreOptmizer/blob/main/ScoreOptm.py#L104)
+5. All of these components were implemented in [ScoreOptimizer class](https://github.com/JH-Won/ScoreOptmizer/blob/main/ScoreOptm.py#L7).
 
 
 ### How to use
