@@ -22,7 +22,7 @@ from ScoreOptm import ScoreOptimizer
 
 2. Create ScoreOptimizer object with score matrix. This will set the loss function from the score matrix.
 ```python
-myOptmizer = ScoreOptimizer(score_matrix) # score_matrix  ndarray.
+myOptmizer = ScoreOptimizer(score_matrix) # score_matrix should be ndarray.
 ```
 
 3. Call the gradient_descent mathod to find optimal parameters. You can set the learning rate, iteration number, and verbose.
